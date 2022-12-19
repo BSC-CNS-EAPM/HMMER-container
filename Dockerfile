@@ -7,6 +7,7 @@ RUN apt-get update --fix-missing && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+# Installing hmmer
 WORKDIR /home/hmmer
 RUN wget http://eddylab.org/software/hmmer/hmmer.tar.gz && \
     tar zxf hmmer.tar.gz && \
@@ -14,6 +15,7 @@ RUN wget http://eddylab.org/software/hmmer/hmmer.tar.gz && \
     ./configure && \
     make && \
     make install && \
+    cd .. && \
     rm hmmer.tar.gz
 
-ENV PATH=/usr/local/hmmer/bin:$PATH
+WORKDIR /home/projects
