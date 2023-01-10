@@ -1,10 +1,16 @@
+################## BASE IMAGE ######################
+
 FROM ubuntu:latest
+
+################## METADATA ######################
+
 LABEL   maintainer="Albert Cañellas <albert.canellas@bsc.es>" \
     container="hmmer" \
     about.summary="profile hidden Markov models for protein sequence analysis" \
     about.home="http://hmmer.org/" \
     software.version="3.3.2"
 
+################## INSTALLATION ######################
 
 # Update to latest packages
 RUN apt-get update --fix-missing && \
